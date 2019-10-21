@@ -1,0 +1,110 @@
+{
+    "section1":"Section 1:Demo for post/get Json data through RESTFUL API",
+    "section2":"Section 2:Demo for loading data through RESTFUL API",
+    "section3":"Section 3:Demo for keeping same session through cookies",
+    "section4":"Section 4:Demo for CORS",
+    "section5":"Section 5:Demo for layout for Mobile",
+    "profiles": [
+        {
+            "Question": "Name",
+            "Answer": "Mike",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Claudio",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Ben",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Atul",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        
+        {
+            "Question": "Name",
+            "Answer": "Russell",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Francis",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Tim",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Shiv",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Gabriela Perez",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+
+        },
+        {
+            "Question": "Name",
+            "Answer": "Tracy",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        },
+        {
+            "Question": "Name",
+            "Answer": "Maria Lindsay Hipolito",
+            "UserID": 23456,
+            "ClientID": 65432,
+            "Email": "abc@.toronto.ca",
+            "Phone": "4164445656",
+            "postcode":"M2G4E3"
+        }
+    ]
+}

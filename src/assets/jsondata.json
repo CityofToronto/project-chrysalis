@@ -1,0 +1,38 @@
+{
+  "title1":"",
+  "title2":"",
+  "title3":"What the components are we using ?",
+
+"whatsComponets": [
+    {
+    "text": "nodejs",
+    "href": "https://nodejs.org/en/"
+    },
+    {
+      "text": "vuejs",
+      "href": "https://vuejs.org/"
+    },
+    {
+      "text": "webpack",
+      "href": "https://webpack.js.org/"
+    },
+   
+    {
+      "text": "typescript",
+      "href": "http://www.typescriptlang.org/"
+    },
+    {
+      "text": "fetch",
+      "href": "https://docs.nativescript.org/ns-framework-modules/fetch"
+    },
+   
+    {
+      "text": "bootstrap-vue",
+      "href": "https://bootstrap-vue.js.org/"
+    },
+    {
+      "text": "babe1",
+      "href": "https://babeljs.io/"
+    }
+  ]
+}
