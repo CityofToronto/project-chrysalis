@@ -1,6 +1,6 @@
 
 <template>
-  <form @submit.prevent class="mb-4">
+  <form @submit.prevent="$emit('submit')" class="mb-4">
     <h2>{{title}}</h2>
     <b-card>
       <slot></slot>
