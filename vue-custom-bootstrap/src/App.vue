@@ -18,11 +18,5 @@ Vue.use(BootstrapVue);
 </script>
 
 <style lang="scss">
-#app {
-  margin: 0 auto;
-  max-width: 52rem;
-}
-
-$primary: #165788; // find these variables in docs and in Bootstrap _variables.scss
-@import "~bootstrap/scss/bootstrap"; // import complete bootstrap.scss source from node_modules using ~ alias
+@import "./app.scss"; // import complete bootstrap.scss source from node_modules using ~ alias
 </style>
