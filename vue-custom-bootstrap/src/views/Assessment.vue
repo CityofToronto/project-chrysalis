@@ -1,9 +1,18 @@
 
 <template>
   <div class="assessment">
-    <FormSection title="Basic Info" @submit="submitForm(formValues)">
+    <FormSection title="Basic info" @submit="submitForm(formValues)">
       <component
-        v-for="(item, index) in formData"
+        v-for="(item, index) in profileData"
+        :key="index"
+        :is="item.fieldType"
+        v-model="formValues[item.name]"
+        v-bind="item"
+      />
+    </FormSection>
+    <FormSection title="Communication Support" @submit="submitForm(formValues)">
+      <component
+        v-for="(item, index) in communicationFormData"
         :key="index"
         :is="item.fieldType"
         v-model="formValues[item.name]"
@@ -46,13 +55,14 @@ export default {
   data() {
     return {
       formValues: {},
-      formData: [
+      profileData: [
         {
           fieldType: "TextInput",
           id: "first-name",
           name: "first-name",
           required: true,
           label: "First name",
+          errorText: "there was an error!",
           subLabel: "What do people call you?"
         },
         {
@@ -84,6 +94,48 @@ export default {
             { value: 4, text: "Lunch" },
             { value: 5, text: "Linner" },
             { value: 6, text: "Dinner" }
+          ]
+        }
+      ],
+      communicationFormData: [
+        {
+          fieldType: "RadioInput",
+          name: "soup",
+          label: "Are you comfortable communicating in English?",
+          options: [
+            { value: 1, text: "Yes" },
+            { value: 2, text: "No" },
+            { value: 3, text: "Unknown" }
+          ]
+        },
+        {
+          fieldType: "RadioInput",
+          name: "language",
+          label: "What is your preferred language?",
+          options: [
+            { text: "English", value: "English" },
+            { text: "French", value: "French" },
+            { text: "Cantonese", value: "Cantonese" },
+            { text: "Mandarin", value: "Mandarin" },
+            { text: "Chinese (not otherwise specified)", value: "Chinese" },
+            { text: "Italian ", value: "Italian" },
+            { text: "Spanish", value: "Spanish" },
+            { text: "Tagalog", value: "Tagalog" },
+            { text: "Vietnamese", value: "Vietnamese" },
+            { text: "Tamil", value: "Tamil" },
+            { text: "Arabic", value: "Arabic" },
+            { text: "Punjabi", value: "Punjabi" },
+            { text: "American Sign Language (ASL)", value: "ASL" }
+          ]
+        },
+        {
+          fieldType: "RadioInput",
+          name: "interpreter",
+          label: "Do you require an interpreter",
+          options: [
+            { value: 1, text: "Yes" },
+            { value: 2, text: "No" },
+            { value: 3, text: "Prefer not to disclose" }
           ]
         }
       ]
