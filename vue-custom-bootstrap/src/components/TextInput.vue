@@ -7,7 +7,8 @@
     class="mb-4"
   >
     <label>
-      <span :class="[ subLabel ? 'font-weight-bold': '', 'col-form-label']">{{label}}</span>
+      <!-- <span :class="[ subLabel ? 'font-weight-bold': '', 'col-form-label']">{{label}}</span> -->
+      <span class="question-label">{{label}}</span>
       <div class="col-form-label col-form-label-sm">{{subLabel}}</div>
       <b-form-input
         :id="id"

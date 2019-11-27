@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Assessment />
+    <Profile/>
   </div>
 </template>
 
@@ -8,11 +8,11 @@
 import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 
-import Assessment from "./views/Assessment.vue";
+import Profile from "./views/Profile.vue";
 
 export default Vue.extend({
   name: "app",
-  components: { Assessment }
+  components: { Profile }
 });
 Vue.use(BootstrapVue);
 </script>

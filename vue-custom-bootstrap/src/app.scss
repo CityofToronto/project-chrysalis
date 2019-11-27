@@ -1,7 +1,29 @@
+$primary: #165788; // find these variables in docs and in Bootstrap _variables.scss
+
 #app {
   margin: 0 auto;
   max-width: 52rem;
 }
+#assessment-content { 
+  position: relative; 
+} 
+#assessment-section-list {
+  ul.nav { 
+    top: 20px; 
+    position: fixed;
+    border-left: 1px solid #eee;	
+    font-size: 0.875rem;
+    li a {
+      color: #99979c;
+    }
+    li a:hover {
+      color: $primary;
+    }
+  } 
+}
+.question-label {
+  font-weight: bold;
+}
+.custom-control-inline {all: unset;}
 
-$primary: #165788; // find these variables in docs and in Bootstrap _variables.scss
 @import "~bootstrap/scss/bootstrap"; // import complete bootstrap.scss source from node_modules using ~ alias
