@@ -24,6 +24,5 @@ $primary: #165788; // find these variables in docs and in Bootstrap _variables.s
 .question-label {
   font-weight: bold;
 }
-.custom-control-inline {all: unset;}
 
 @import "~bootstrap/scss/bootstrap"; // import complete bootstrap.scss source from node_modules using ~ alias
