@@ -1,26 +1,32 @@
-
 <template>
-  <div class="assessment">
-    <FormSection title="Basic info" @submit="submitForm(formValues)">
-      <component
-        v-for="(item, index) in profileData"
-        :key="index"
-        :is="item.fieldType"
-        v-model="formValues[item.name]"
-        v-bind="item"
-      />
-    </FormSection>
-    <FormSection title="Communication Support" @submit="submitForm(formValues)">
-      <component
-        v-for="(item, index) in communicationFormData"
-        :key="index"
-        :is="item.fieldType"
-        v-model="formValues[item.name]"
-        v-bind="item"
-      />
-    </FormSection>
-    <p>{{formValues}}</p>
-  </div>
+  <b-row class="assessment">
+    <b-col
+      cols="8"
+      id="assessment-content"
+      data-spy="scroll"
+      data-target="#assessment-section-list"
+      data-offset="1"
+    >
+      <div v-for="item in assessmentData" v-bind:key="item.id">
+        <FormSection
+          :title="item.title"
+          :id="getDivId(item.id, item.title)"
+          @submit="submitForm(formValues)"
+        >
+          <component
+            v-for="(itemChild, index) in item.questionList"
+            :key="index"
+            :is="itemChild.fieldType"
+            v-model="formValues[itemChild.name]"
+            v-bind="itemChild"
+          />
+        </FormSection>
+      </div>
+    </b-col>
+    <b-col cols="4">
+      <AssessmentSectionList />
+    </b-col>
+  </b-row>
 </template>
 
 <script>
@@ -29,14 +35,16 @@ import TextInput from "../components/TextInput";
 import FormSection from "../components/FormSection";
 import RadioInput from "../components/RadioInput";
 import CheckboxInput from "../components/CheckboxInput";
-
+import AssessmentSectionList from "./AssessmentSectionList";
+import assessments from "../assets/assessments.json"; // loading json data
 export default {
   name: "assessment",
   components: {
     TextInput,
     RadioInput,
     CheckboxInput,
-    FormSection
+    FormSection,
+    AssessmentSectionList
   },
   methods: {
     submitForm(responses) {
@@ -50,95 +58,15 @@ export default {
           console.log("successfully saved", formResponses);
         })
         .catch(e => console.warn("couldnt save", e));
+    },
+    getDivId: (formId, formTitle) => {
+      return formId + "-" + formTitle.replace(" ", "-");
     }
   },
   data() {
     return {
       formValues: {},
-      profileData: [
-        {
-          fieldType: "TextInput",
-          id: "first-name",
-          name: "first-name",
-          required: true,
-          label: "First name",
-          errorText: "there was an error!",
-          subLabel: "What do people call you?"
-        },
-        {
-          fieldType: "TextInput",
-          id: "last-name",
-          name: "last-name",
-          label: "Last name"
-        },
-        {
-          fieldType: "RadioInput",
-          description: "What soup do you eat the most often",
-          name: "soup",
-          label: "Favourite Soup?",
-          options: [
-            { value: 1, text: "Tomato" },
-            { value: 2, text: "Mushroom" },
-            { value: 3, text: "Carrot" }
-          ]
-        },
-        {
-          fieldType: "CheckboxInput",
-          description: "What meals do you eat on a regular basis",
-          name: "meal",
-          label: "What meals do you eat",
-          options: [
-            { value: 1, text: "Breakfast" },
-            { value: 2, text: "Brunch" },
-            { value: 3, text: "Second Breakfast" },
-            { value: 4, text: "Lunch" },
-            { value: 5, text: "Linner" },
-            { value: 6, text: "Dinner" }
-          ]
-        }
-      ],
-      communicationFormData: [
-        {
-          fieldType: "RadioInput",
-          name: "soup",
-          label: "Are you comfortable communicating in English?",
-          options: [
-            { value: 1, text: "Yes" },
-            { value: 2, text: "No" },
-            { value: 3, text: "Unknown" }
-          ]
-        },
-        {
-          fieldType: "RadioInput",
-          name: "language",
-          label: "What is your preferred language?",
-          options: [
-            { text: "English", value: "English" },
-            { text: "French", value: "French" },
-            { text: "Cantonese", value: "Cantonese" },
-            { text: "Mandarin", value: "Mandarin" },
-            { text: "Chinese (not otherwise specified)", value: "Chinese" },
-            { text: "Italian ", value: "Italian" },
-            { text: "Spanish", value: "Spanish" },
-            { text: "Tagalog", value: "Tagalog" },
-            { text: "Vietnamese", value: "Vietnamese" },
-            { text: "Tamil", value: "Tamil" },
-            { text: "Arabic", value: "Arabic" },
-            { text: "Punjabi", value: "Punjabi" },
-            { text: "American Sign Language (ASL)", value: "ASL" }
-          ]
-        },
-        {
-          fieldType: "RadioInput",
-          name: "interpreter",
-          label: "Do you require an interpreter",
-          options: [
-            { value: 1, text: "Yes" },
-            { value: 2, text: "No" },
-            { value: 3, text: "Prefer not to disclose" }
-          ]
-        }
-      ]
+      assessmentData: assessments.assessments
     };
   }
 };

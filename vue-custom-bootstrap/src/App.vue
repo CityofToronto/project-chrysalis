@@ -1,6 +1,16 @@
 <template>
   <div id="app">
-    <Assessment />
+    <NavBar />
+    <b-container fluid>
+      <b-row align-h="left">
+        <b-col cols="12" md="4" lg="3" class="py-4 pr-4">
+          <ClientSideBar />
+        </b-col>
+        <b-col cols="12" md="8" class="py-4">
+          <router-view></router-view>
+        </b-col>
+      </b-row>
+    </b-container>
   </div>
 </template>
 
@@ -9,10 +19,23 @@ import Vue from "vue";
 import BootstrapVue from "bootstrap-vue";
 
 import Assessment from "./views/Assessment.vue";
+import NavBar from "./components/NavBar.vue";
+import CaseNotes from "./views/CaseManagement/CaseNotes.vue";
+import ClientSideBar from "./components/ClientSideBar.vue";
+import VueRouter from "vue-router";
+
+const router = new VueRouter({
+  mode: "history",
+  routes: [
+    { path: "/case-management", component: CaseNotes },
+    { path: "/assessment", component: Assessment }
+  ]
+});
 
 export default Vue.extend({
   name: "app",
-  components: { Assessment }
+  router,
+  components: { Assessment, NavBar, CaseNotes, ClientSideBar }
 });
 Vue.use(BootstrapVue);
 </script>
