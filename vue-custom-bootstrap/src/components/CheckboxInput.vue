@@ -4,7 +4,7 @@
     :invalid-feedback="errorText"
     :state="hasError()"
     :label-for="id"
-    class="mb-4 question"
+    class="mb-4"
   >
     <label>
       <span class="question-label">{{label}}</span>
