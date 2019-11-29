@@ -3,7 +3,8 @@
 		<ul class="nav flex-column"> 
 			<li class="nav-item" v-for="item in assessmentData" v-bind:key="item.id"> 
 			  <a class="nav-link" :href="getHref(item.id, item.title)"> 
-				{{ item.title }} {{item.questionList.length}}
+				{{ item.title }}
+        <span class="badge badge-info badge-pill pull-right">{{item.questionList.length}}</span>
 			  </a> 
 			</li> 
 		</ul> 

@@ -24,5 +24,9 @@ $primary: #165788; // find these variables in docs and in Bootstrap _variables.s
 .question-label {
   font-weight: bold;
 }
+.pull-right {
+  float: right !important;
+  margin-left: 1em ;
+}
 
 @import "~bootstrap/scss/bootstrap"; // import complete bootstrap.scss source from node_modules using ~ alias
