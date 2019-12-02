@@ -1,26 +1,26 @@
 <template>
   <div class="profile">
-     <PageLayout>
+     <RightSideBarLayout>
         <template v-slot:main>
           <Assessment/>
         </template>
         <template v-slot:right-sidebar>
           <AssessmentSectionList/>
         </template>
-    </PageLayout>
+    </RightSideBarLayout>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import PageLayout from "@/components/PageLayout.vue";  
+import RightSideBarLayout from "@/components/RightSideBarLayout.vue";  
 import Assessment from "@/views/Assessment.vue";  
 import AssessmentSectionList from "@/views/AssessmentSectionList.vue";  
 
 export default {
   name: "Profile",
   components: {
-    PageLayout,
+    RightSideBarLayout,
     Assessment,
     AssessmentSectionList
   }

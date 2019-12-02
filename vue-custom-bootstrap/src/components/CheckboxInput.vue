@@ -3,7 +3,6 @@
     :description="hasError ? '' : description"
     :invalid-feedback="errorText"
     :state="hasError()"
-    :label-for="id"
     class="mb-4"
   >
     <label>

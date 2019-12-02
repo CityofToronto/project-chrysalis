@@ -14,9 +14,6 @@
 <script>
 
 export default {
-  name: 'PageLayout',
-  props: {
-    pageId: String
-  }
+  name: 'RightSideBarLayout'
 }
 </script>
