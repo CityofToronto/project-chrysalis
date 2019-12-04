@@ -1,14 +1,14 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
-import Assessment from "../views/Assessment.vue";
+import Profile from "../views/Profile.vue";
 
 Vue.use(VueRouter);
 
 const routes = [
   {
     path: "/",
-    name: "Assessment",
-    component: Assessment
+    name: "Profile",
+    component: Profile
   }
 ];
 

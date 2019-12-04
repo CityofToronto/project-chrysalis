@@ -3,10 +3,12 @@
     :description="hasError ? '' : description"
     :invalid-feedback="errorText"
     :state="hasError()"
-    :label-for="id"
-    :label="label"
     class="mb-4"
   >
+    <label>
+      <span class="question-label">{{label}}</span>
+    </label>
+
     <b-form-checkbox-group
       :id="id"
       :name="name"
@@ -14,6 +16,7 @@
       :state="hasError()"
       v-bind="$attrs"
       v-on:input="$emit('input', $event)"
+      stacked
     ></b-form-checkbox-group>
   </b-form-group>
 </template>

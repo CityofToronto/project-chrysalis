@@ -1,7 +1,6 @@
 <template>
-  <b-row class="assessment">
-    <b-col
-      cols="8"
+  <div class="assessment">
+    <div
       id="assessment-content"
       data-spy="scroll"
       data-target="#assessment-section-list"
@@ -22,11 +21,8 @@
           />
         </FormSection>
       </div>
-    </b-col>
-    <b-col cols="4">
-      <AssessmentSectionList />
-    </b-col>
-  </b-row>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -35,7 +31,6 @@ import TextInput from "../components/TextInput";
 import FormSection from "../components/FormSection";
 import RadioInput from "../components/RadioInput";
 import CheckboxInput from "../components/CheckboxInput";
-import AssessmentSectionList from "./AssessmentSectionList";
 import assessments from "../assets/assessments.json"; // loading json data
 export default {
   name: "assessment",
@@ -43,8 +38,7 @@ export default {
     TextInput,
     RadioInput,
     CheckboxInput,
-    FormSection,
-    AssessmentSectionList
+    FormSection
   },
   methods: {
     submitForm(responses) {
@@ -54,10 +48,10 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: formResponses
       })
-        .then(res => {
+        .then((res) => {
           console.log("successfully saved", formResponses);
         })
-        .catch(e => console.warn("couldnt save", e));
+        .catch((e) => console.warn("couldnt save", e));
     },
     getDivId: (formId, formTitle) => {
       return formId + "-" + formTitle.replace(" ", "-");

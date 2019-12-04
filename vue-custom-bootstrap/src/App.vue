@@ -22,20 +22,22 @@ import Assessment from "./views/Assessment.vue";
 import NavBar from "./components/NavBar.vue";
 import CaseNotes from "./views/CaseManagement/CaseNotes.vue";
 import ClientSideBar from "./components/ClientSideBar.vue";
+import Profile from "./views/Profile.vue";
+
 import VueRouter from "vue-router";
 
 const router = new VueRouter({
   mode: "history",
   routes: [
     { path: "/case-management", component: CaseNotes },
-    { path: "/assessment", component: Assessment }
+    { path: "/assessment", component: Profile }
   ]
 });
 
 export default Vue.extend({
   name: "app",
   router,
-  components: { Assessment, NavBar, CaseNotes, ClientSideBar }
+  components: { NavBar, Profile, CaseNotes, ClientSideBar }
 });
 Vue.use(BootstrapVue);
 </script>
