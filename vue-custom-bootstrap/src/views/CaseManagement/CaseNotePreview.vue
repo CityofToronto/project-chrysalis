@@ -5,7 +5,7 @@
     class="flex-column align-items-start"
     :active="active"
   >
-    <p class="mb-1 clampMe">{{ noteText }}</p>
+    <p class="mb-1 clampTextHeight">{{ noteText }}</p>
     <div class="d-flex w-100 justify-content-between">
       <small>{{ author }}</small>
       <small>{{ lastUpdate }}</small>
@@ -14,13 +14,13 @@
 </template>
 
 <style scoped>
-.clampMe {
+.clampTextHeight {
   position: relative;
   height: 3rem;
   overflow: hidden;
 }
 
-.clampMe:after {
+.clampTextHeight:after {
   content: "";
   text-align: right;
   position: absolute;
@@ -32,7 +32,7 @@
 
 /* For the browsers that support -webkit-line-clamp */
 @supports (-webkit-line-clamp: 2) {
-  .clampMe {
+  .clampTextHeight {
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
@@ -40,7 +40,7 @@
     -webkit-box-orient: vertical;
   }
 
-  .clampMe:after {
+  .clampTextHeight:after {
     display: none;
   }
 }

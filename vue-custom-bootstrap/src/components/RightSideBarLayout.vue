@@ -1,14 +1,14 @@
 <template>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-9 col-8">
-        <slot name="main"></slot>
-      </div>
-      <div class="col-sm-3 col-4">
+  <b-container fluid>
+    <b-row no-gutters>
+      <b-col order="0" order-lg="2" cols="12" lg="3">
         <slot name="right-sidebar"></slot>
-      </div>
-    </div>
-  </div>
+      </b-col>
+      <b-col order="1" cols="12" lg="9">
+        <slot name="main"></slot>
+      </b-col>
+    </b-row>
+  </b-container>
 </template>
 
 <script>

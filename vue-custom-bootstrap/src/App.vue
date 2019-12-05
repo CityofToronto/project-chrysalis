@@ -2,8 +2,8 @@
   <div id="app">
     <NavBar />
     <b-container fluid>
-      <b-row align-h="left">
-        <b-col cols="12" md="4" lg="3" class="py-4 pr-4">
+      <b-row align-h="around">
+        <b-col cols="12" md="4" lg="3" class="my-4 pr-4">
           <ClientSideBar />
         </b-col>
         <b-col cols="12" md="8" class="py-4">

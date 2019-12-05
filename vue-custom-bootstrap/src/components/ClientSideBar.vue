@@ -1,6 +1,6 @@
 
 <template>
-  <div id="client-sidebar" visible="true">
+  <div>
     <b-nav vertical card-header pills>
       <h2>John Doe</h2>
       <p class="lead">June 1, 1980</p>

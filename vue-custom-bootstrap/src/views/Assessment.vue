@@ -1,26 +1,19 @@
 <template>
   <div class="assessment">
-    <div
-      id="assessment-content"
-      data-spy="scroll"
-      data-target="#assessment-section-list"
-      data-offset="1"
-    >
-      <div v-for="item in assessmentData" v-bind:key="item.id">
-        <FormSection
-          :title="item.title"
-          :id="getDivId(item.id, item.title)"
-          @submit="submitForm(formValues)"
-        >
-          <component
-            v-for="(itemChild, index) in item.questionList"
-            :key="index"
-            :is="itemChild.fieldType"
-            v-model="formValues[itemChild.name]"
-            v-bind="itemChild"
-          />
-        </FormSection>
-      </div>
+    <div v-for="item in assessmentData" v-bind:key="item.id">
+      <FormSection
+        :title="item.title"
+        :id="getDivId(item.id, item.title)"
+        @submit="submitForm(formValues)"
+      >
+        <component
+          v-for="(itemChild, index) in item.questionList"
+          :key="index"
+          :is="itemChild.fieldType"
+          v-model="formValues[itemChild.name]"
+          v-bind="itemChild"
+        />
+      </FormSection>
     </div>
   </div>
 </template>
@@ -32,6 +25,8 @@ import FormSection from "../components/FormSection";
 import RadioInput from "../components/RadioInput";
 import CheckboxInput from "../components/CheckboxInput";
 import assessments from "../assets/assessments.json"; // loading json data
+import { getValidId } from "../services/utils";
+
 export default {
   name: "assessment",
   components: {
@@ -48,13 +43,13 @@ export default {
         headers: { "Content-Type": "application/json" },
         body: formResponses
       })
-        .then((res) => {
+        .then(res => {
           console.log("successfully saved", formResponses);
         })
-        .catch((e) => console.warn("couldnt save", e));
+        .catch(e => console.warn("couldnt save", e));
     },
     getDivId: (formId, formTitle) => {
-      return formId + "-" + formTitle.replace(" ", "-");
+      return getValidId(formTitle + formId);
     }
   },
   data() {
