@@ -1,9 +1,11 @@
-
 <template>
   <div class="assessment">
-  <div id="assessment-content" data-spy="scroll" data-target="#assessment-section-list" data-offset="1">
     <div v-for="item in assessmentData" v-bind:key="item.id">
-      <FormSection :title="item.title" :divId="getDivId(item.id, item.title)" @submit="submitForm(formValues)">
+      <FormSection
+        :title="item.title"
+        :id="getDivId(item.id, item.title)"
+        @submit="submitForm(formValues)"
+      >
         <component
           v-for="(itemChild, index) in item.questionList"
           :key="index"
@@ -13,12 +15,6 @@
         />
       </FormSection>
     </div>
-
-
-    <!-- <p>{{formValues}}</p> -->
-   
-
-  </div>
   </div>
 </template>
 
@@ -28,7 +24,8 @@ import TextInput from "../components/TextInput";
 import FormSection from "../components/FormSection";
 import RadioInput from "../components/RadioInput";
 import CheckboxInput from "../components/CheckboxInput";
-import assessments from "../assets/json/assessments.json"; // loading json data
+import assessments from "../assets/assessments.json"; // loading json data
+import { getValidId } from "../services/utils";
 
 export default {
   name: "assessment",
@@ -51,8 +48,8 @@ export default {
         })
         .catch(e => console.warn("couldnt save", e));
     },
-    getDivId: function(formId, formTitle) {
-      return formId + "-" + formTitle.replace(" ", "-");
+    getDivId: (formId, formTitle) => {
+      return getValidId(formTitle + formId);
     }
   },
   data() {
