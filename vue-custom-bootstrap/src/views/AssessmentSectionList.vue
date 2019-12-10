@@ -9,9 +9,7 @@
       >
         {{ item.title }}
         <b-badge variant="primary" pill>
-          {{
-          item.questionList.length
-          }}
+          {{ item.questionList.length }}
         </b-badge>
       </b-list-group-item>
     </b-list-group>
@@ -19,14 +17,14 @@
 </template>
 
 <script>
-import assessments from "../assets/json/assessments.json"; // loading json data
-import { getValidId } from "../services/utils";
+import { getAllForms } from "../services/api.ts";
+import { getValidId } from "../services/utils.ts";
 
 export default {
   name: "AssessmentSectionList",
   data() {
     return {
-      assessmentData: assessments.assessments
+      assessmentData: getAllForms()
     };
   },
   methods: {

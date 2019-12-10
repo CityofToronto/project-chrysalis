@@ -4,7 +4,7 @@
       <FormSection
         :title="item.title"
         :id="getDivId(item.id, item.title)"
-        @submit="submitForm(formValues)"
+        @submit="submitForm(item.id, formValues)"
       >
         <component
           v-for="(itemChild, index) in item.questionList"
@@ -24,8 +24,8 @@ import TextInput from "../components/TextInput";
 import FormSection from "../components/FormSection";
 import RadioInput from "../components/RadioInput";
 import CheckboxInput from "../components/CheckboxInput";
-import assessments from "../assets/assessments.json"; // loading json data
-import { getValidId } from "../services/utils";
+import { getAllForms, saveFormData } from "../services/api.ts";
+import { getValidId } from "../services/utils.ts";
 
 export default {
   name: "assessment",
@@ -35,18 +35,17 @@ export default {
     CheckboxInput,
     FormSection
   },
+  created() {
+    this.fetchFormSchemas();
+  },
   methods: {
-    submitForm(responses) {
-      const formResponses = JSON.stringify(formResponses);
-      fetch("/api/profile", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: formResponses
-      })
-        .then(res => {
-          console.log("successfully saved", formResponses);
-        })
-        .catch(e => console.warn("couldnt save", e));
+    fetchFormSchemas() {
+      getAllForms().then((form) => {
+        this.assessmentData = form;
+      });
+    },
+    submitForm(formId, responses) {
+      return saveFormData(1, 1, this.formValues);
     },
     getDivId: (formId, formTitle) => {
       return getValidId(formTitle + formId);
@@ -55,7 +54,7 @@ export default {
   data() {
     return {
       formValues: {},
-      assessmentData: assessments.assessments
+      assessmentData: []
     };
   }
 };
